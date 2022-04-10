@@ -1,3 +1,7 @@
+pub trait Summary {
+    fn summarize(&self) -> String;
+}
+
 pub struct NewsArticle {
     pub headline: String,
     pub location: String,
@@ -18,6 +22,18 @@ pub struct Tweet {
     pub retweet: bool,
 }
 
-pub trait Summary {
-    fn summarize(&self) -> String;
+
+impl Summary for Tweet {
+    fn summarize(&self) -> String {
+        format!("{}: {}", self.username, self.content)
+    }
+}
+
+pub fn notify(item: &impl Summary) {
+    println!("Breaking news! {}", item.summarize());
+}
+
+// longer version (same thing)
+pub fn notify<T: Summary>(item: &T) {
+    println!("Breaking news! {}", item.summarize());
 }
