@@ -3,7 +3,7 @@ name = "my_crate_mdberkey"
 version = "0.1.0"
 edition = "2021"
 description = "test crate to me to publish"
-liscense = "MIT"
+license = "MIT"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
